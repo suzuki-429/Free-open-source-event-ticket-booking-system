@@ -117,7 +117,7 @@ export default function Home() {
               </p>
             </div>
             <nav className="hidden md:flex space-x-8">
-              <a href="/" className="text-blue-600 font-medium">What's On</a>
+              <a href="/whats-on" className="text-blue-600 font-medium">What's On</a>
               <a href="/admin" className="text-gray-600 hover:text-gray-900">Admin</a>
             </nav>
           </div>
@@ -142,10 +142,52 @@ export default function Home() {
             </button>
           </div>
         ) : (
-          <ShowListing
-            shows={shows}
-            onBookShow={handleBookShow}
-          />
+          <>
+            {/* SEO-friendly demo intro */}
+            <section className="py-16 sm:py-20 text-center">
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900">
+                EventSeats Demo – Open Source Event Booking System
+              </h1>
+              <p className="mt-4 max-w-2xl mx-auto text-gray-700">
+                This is the demo frontend for the EventSeats booking system. Explore shows and try the
+                booking flow on our What's On page. Built and maintained by{' '}
+                <a href="https://hannahgoodridge.dev" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-medium">
+                  Hannah Goodridge
+                </a>
+                .
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="/whats-on" className="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 w-full sm:w-auto">
+                  View What's On
+                </a>
+                <a href="https://github.com/Hannah-goodridge/eventseats" target="_blank" rel="noopener noreferrer" className="inline-block border border-gray-300 text-gray-800 px-6 py-3 rounded hover:bg-gray-50 w-full sm:w-auto">
+                  Star on GitHub
+                </a>
+              </div>
+            </section>
+
+            {/* JSON-LD structured data for SEO */}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'SoftwareSourceCode',
+                  name: 'EventSeats - Open Source Event Booking System',
+                  url: 'https://eventseats.hannahgoodridge.dev',
+                  codeRepository: 'https://github.com/Hannah-goodridge/eventseats',
+                  author: {
+                    '@type': 'Person',
+                    name: 'Hannah Goodridge',
+                    url: 'https://hannahgoodridge.dev',
+                  },
+                  applicationCategory: 'BusinessApplication',
+                  operatingSystem: 'Web',
+                  license: 'https://opensource.org/licenses/MIT',
+                }),
+              }}
+            />
+          </>
         )}
       </main>
 
@@ -181,7 +223,7 @@ export default function Home() {
             <div className="text-center">
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Quick Links</h3>
               <div className="space-y-1">
-                <a href="/" className="block text-gray-600 text-sm hover:text-blue-600">What's On</a>
+                <a href="/whats-on" className="block text-gray-600 text-sm hover:text-blue-600">What's On</a>
                 <a href="/admin" className="block text-gray-600 text-sm hover:text-blue-600">Admin</a>
                 {settings?.venue?.website && (
                   <a href={settings.venue.website} target="_blank" rel="noopener noreferrer" className="block text-gray-600 text-sm hover:text-blue-600">
