@@ -65,7 +65,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
     "jsdom": "^26.1.0",
-    "msw": "^2.6.6",
+    "msw": "^2.15.0",
     "prettier": "^3.3.3",
     "tailwindcss": "^4",
     "tsx": "^4.20.3",
